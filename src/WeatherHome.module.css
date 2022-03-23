@@ -1,0 +1,160 @@
+/* css for weather Widget */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.2/css/weather-icons.min.css);
+::placeholder{
+    color: snow;
+}
+ input{
+     padding: 50px auto;
+     border-radius: 5px;
+     width: 20vw;
+     height: 3vh;
+     margin: 20px auto;
+     align-items: center;
+     background-color: rgb(46, 116, 196);
+     color: white;
+     font-weight: bold;
+     font-size: 700;
+ }
+.weatherWrapper{
+    width: 400px;
+    margin: 10px auto;
+
+  }
+  .weatherCard{
+    width: 400px;
+    height: 200px;
+    font-family: 'Open Sans';
+    position: relative;
+  }
+  .currentTemp{
+    width: 220px;
+    height: 200px;
+    background:#153B4D;
+    border-radius: 20px 0 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .currentWeather{
+    width: 180px;
+    height: 200px;
+    background: #477FBB;
+    border-radius: 0 20px 20px 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .temp{
+    font-size: 50px;
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    /* color: rgb(255, 255, 255); */
+    color: #2FFFFC;
+    padding: 20px 0 0;
+  }
+  .minMaxValue{
+    color: #2FFFFC;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .date{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    display: block;
+  }
+  .max{
+    color: #C5CBE3;
+    text-align: left;
+    font-weight: 500;
+   padding: 0 10px;
+    font-size: 15px;
+    display: inline-block;
+  }
+  .min{
+    color: #C5CBE3;
+    text-align: right;
+    font-weight: 500;
+   padding: 0 10px;
+    font-size: 15px;
+    display: inline-block;
+  }
+  .location{
+    color: #C5CBE3;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    display: block;
+  }
+  .conditions{
+    font-family: weathericons;
+    font-size: 30px;
+    display: block;
+    padding: 5px 0 0;
+    text-align:center;
+  }
+  .description{
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    font-weight: 200;
+    /* text-transform:capitalize; */
+    color: rgb(255, 255, 255);
+    padding: 5px 0;
+  }
+  .info{
+    width: 180px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background:#153B4D;
+  border-radius: 20px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    text-align: center;
+  }
+  .rain {
+    width: 50%;
+    position: absolute;
+    left: 5px;
+    word-spacing: 50px;
+    color: #26D44D;
+    top: 3px;
+  }
+  .rain::before{
+    display: block;
+    content: '\f051';
+    font-family: weathericons;
+    color: rgba(255, 255, 0, 0.788);
+    font-size: 20px;
+    left: 2px;
+    top: 5px;
+    position: absolute;
+  }
+  .wind {
+    width: 50%;
+    right: -5px;
+    position: absolute;
+    color: #26D44D;
+    word-spacing: 50px;
+    top: 3px;
+  }
+  .wind::before{
+    display: block;
+    content: '\f052';
+    font-family: weathericons;
+    color: rgb(197, 162, 96);
+    font-size: 20px;
+    left: -10px;
+    position: absolute;
+    top: 5px;
+  }
+  
