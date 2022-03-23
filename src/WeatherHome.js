@@ -7,20 +7,30 @@ function WeatherHome() {
   const [dataShowMy, setDataShowMy] = useState(false);
   const [dataShow, setDataShow] = useState(true);
   const [dataMyWeather, setdataMyWeather] = useState({});
+  const [errorMessage, setErrorMessage] =useState({message:false,color:`white`});
   const API_ID = `${process.env.REACT_APP_OPEN_WEATHER_APP_ID}`
   console.log(API_ID);
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_ID}`;
   const findWeather = (event) => {
+    setErrorMessage({message:false, color:`white`})
+    
     if (event.key === "Enter") {
       axios.get(url).then((response) => {
         // console.log(response.data);
         setDataWeather(response.data);
-      });
-      setDataShowMy(true);
-      setDataShow(false)
-      setLocation("");
+        setDataShowMy(true);
+        setDataShow(false)
+        setLocation("");
+    
+
+      })
+      .catch((error)=>{
+        setErrorMessage({message:true,color:`red`})
+        setLocation("Not found. Try Another!!!");
+      })
     }
   };
+
   const myWeather = () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=${API_ID}`;
     axios.get(url).then((response) => {
@@ -72,15 +82,27 @@ return time.toLocaleString("en-US", {weekday: "short", day: "numeric",month: "sh
   return (
     <div> 
         <h2>Get update with your location!!!</h2>
-        <input
+        {
+          errorMessage.message ? <input style={{ color: errorMessage.color }}
+          value={location}
+          onChange={(e) => {
+            setLocation(e.target.value);
+          }}
+          placeholder="Enter Location"
+          type="text"
+          onKeyPress={(e) => findWeather(e)}
+        /> :
+        <input style={{ color: errorMessage.color }}
         value={location}
-        onChange={(e) => {
+        onChange={(e) => { 
           setLocation(e.target.value);
         }}
         placeholder="Enter Location"
         type="text"
         onKeyPress={(e) => findWeather(e)}
       />
+        }
+
 
         { dataShow &&    <div className={moduleCss.weatherWrapper}>
         <div className={moduleCss.weatherCard}>
